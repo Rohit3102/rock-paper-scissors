@@ -35,7 +35,7 @@ const showWinner = function(userWin, userChoice, compChoice){
         computerscore.innerHTML = compScore;
 
         console.log("you lose");
-        msg.innerText = `you lost! Your ${compChoice} beats ${userChoice}`
+        msg.innerText = `you lost! computer's ${compChoice} beats your ${userChoice}`
         msg.style.backgroundColor = "red"
     };
 };
@@ -51,10 +51,16 @@ if(userChoice === compChoice){
 drawGame()
 }else{
     let userwin = true;
+
     if(userChoice === "rock"){
         //scissor, paper
+        if(compChoice === paper){
+            userwin = false
+        }else{
+            userwin = true;
+        }
 
-       userwin = compChoice === "paper" ? false : true;
+    //    userwin = compChoice === "paper" ? false : true;
     }else if(userChoice === "paper"){
         // rock, sissor
 
